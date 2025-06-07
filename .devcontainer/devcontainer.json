@@ -3,7 +3,7 @@
 	"name": "Python Dev",
 	"image": "mcr.microsoft.com/devcontainers/python:1-3.9-bookworm",
 
-	// Optimize for AI agents: reduce token usage and prevent interactive traps
+	// Optimize for AI agents
 	"containerEnv": {
 		"PIP_QUIET": "1",        // Suppress verbose pip output to save tokens
 		"GIT_PAGER": "cat"       // Prevent getting stuck in vim/less pagers
