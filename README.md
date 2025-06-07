@@ -31,6 +31,7 @@ You should see the test pass, confirming your development environment is ready.
 - Complete Python toolchain (Pylance, debugger, Black formatter)
 - Testing framework (pytest with coverage)
 - Security settings to prevent credential leaks
+- AI coding optimized (reduces token waste, prevents common traps)
 
 ## Files
 
@@ -42,6 +43,7 @@ You should see the test pass, confirming your development environment is ready.
 - **Security**: Prevents Docker/Git credentials from leaking into container
 - **Extensions**: Auto-installs Python tools
 - **Auto-install**: Dependencies install on container creation
+- **AI Ready**: Avoids common traps and saves tokens
 
 ## Customization
 
