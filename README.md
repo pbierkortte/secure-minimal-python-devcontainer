@@ -1,0 +1,56 @@
+# Secure Minimal Python Dev Container
+
+Development containers provide isolated, consistent environments that eliminate the "works on my machine" problem. This setup gives you a ready-to-use Python development environment with security best practices built in.
+
+Instead of spending hours configuring Python versions, extensions, and dependencies, you get a working setup in minutes. Perfect for teams who want consistent development environments across different machines and operating systems.
+
+## Quick Start
+
+1. Clone or download this template
+2. Open the folder in VS Code
+3. Install "Dev Containers" extension if not already installed
+4. Customize `requirements.txt` and `devcontainer.json` for your project needs
+5. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac) → "Dev Containers: Reopen in Container"
+6. Wait for the container to build and dependencies to install
+
+**Happy coding!**
+
+## Verification
+
+Once your container is running, verify everything works:
+
+```bash
+pytest
+```
+
+You should see the test pass, confirming your development environment is ready.
+
+## What You Get
+
+- Python 3.9 environment
+- Complete Python toolchain (Pylance, debugger, Black formatter)
+- Testing framework (pytest with coverage)
+- Security settings to prevent credential leaks
+
+## Files
+
+- `devcontainer.json` - Container configuration
+- `requirements.txt` - Testing and formatting dependencies (pytest, pytest-cov, black)
+
+## Key Settings
+
+- **Security**: Prevents Docker/Git credentials from leaking into container
+- **Extensions**: Auto-installs Python tools
+- **Auto-install**: Dependencies install on container creation
+
+## Customization
+
+- Edit `requirements.txt` for your project dependencies
+- Add/remove extensions in `devcontainer.json`
+- **AI Assistants**: Uncomment the line you want to use:
+  - For Cline: `"saoudrizwan.claude-dev"`
+  - For Roo: `"RooVeterinaryInc.roo-cline"`
+- **Change Python version**: Update the `image` in `devcontainer.json`
+  - Current: `mcr.microsoft.com/devcontainers/python:1-3.9-bookworm` (legacy support)
+  - For Python 3.11: `mcr.microsoft.com/devcontainers/python:1-3.11-bookworm`
+  - For Python 3.12: `mcr.microsoft.com/devcontainers/python:1-3.12-bookworm`
