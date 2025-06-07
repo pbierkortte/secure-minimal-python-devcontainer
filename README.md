@@ -48,7 +48,7 @@ You should see the test pass, confirming your development environment is ready.
 ## Customization
 
 - Edit `requirements.txt` for your project dependencies
-- Add/remove extensions in `devcontainer.json`
+- Adjust `devcontainer.json` to add features
 - **AI Assistants**: Uncomment the line you want to use:
   - For Cline: `"saoudrizwan.claude-dev"`
   - For Roo: `"RooVeterinaryInc.roo-cline"`
