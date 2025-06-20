@@ -5,8 +5,10 @@
 
 	// Optimize for AI agents
 	"containerEnv": {
-		"PIP_QUIET": "1",        // Suppress verbose pip output to save tokens
-		"GIT_PAGER": "cat"       // Prevent getting stuck in vim/less pagers
+		"GIT_EDITOR": "nano",                        // Use nano as the git editor
+		"GIT_PAGER": "cat",                          // Prevent getting stuck in vim/less pagers
+		"PIP_QUIET": "1",                            // Suppress verbose pip output to save tokens
+		"PYTHONPATH": "${containerWorkspaceFolder}"  // Enable imports from project root
 	},
 
 	// Configure tool-specific properties.
@@ -37,12 +39,12 @@
 	},
 	
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip3 install --upgrade pip && pip3 install --user -r requirements.txt"
+	"postCreateCommand": "pip3 install -r requirements.txt",
 	
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {
-	//     "ghcr.io/devcontainers/features/aws-cli:1": {}
-	// },
+	"features": {
+	//    "ghcr.io/devcontainers/features/aws-cli:1": {}
+	}
 	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
