@@ -44,12 +44,15 @@
                 // Prevent WSL-related credential leaks on Windows
                 "dev.containers.executeInWSL": false,
                 // *** Code Formatting ***
-                // Automatically format code on save
-                "editor.formatOnSave": true,
-                // Ensure files end with a newline
-                "files.insertFinalNewline": true,
-                // Use Black as the default Python formatter
-                "editor.defaultFormatter": "ms-python.black-formatter"
+                "[python]": {
+                    // Automatically format code on save
+                    "editor.formatOnSave": true,
+                    // Use Black as the default Python formatter
+                    "editor.defaultFormatter": "ms-python.black-formatter",
+                    // Ensure files end with a newline
+                    "files.insertFinalNewline": true,
+                    "files.trimFinalNewlines": true
+                }
             }
         }
     },
