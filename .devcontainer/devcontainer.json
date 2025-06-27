@@ -18,9 +18,8 @@
         "vscode": {
             "extensions": [
                 // *** AI Coding Assistants ***
-                "saoudrizwan.claude-dev",
-                // Alternative AI assistant (commented out)
-                // "RooVeterinaryInc.roo-cline",
+				// "saoudrizwan.claude-dev",
+				// "RooVeterinaryInc.roo-cline",
                 // *** Python Development Extensions ***
                 // Python language support
                 "ms-python.python",
