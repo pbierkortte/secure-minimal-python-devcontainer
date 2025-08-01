@@ -12,7 +12,9 @@
         // Suppress verbose pip output to save tokens
         "PIP_QUIET": "1",
         // Enable imports from project root
-        "PYTHONPATH": "${containerWorkspaceFolder}"
+        "PYTHONPATH": "${containerWorkspaceFolder}",
+        // Skip bytecode caching
+        "PYTHONDONTWRITEBYTECODE": "1"
     },
     "customizations": {
         "vscode": {
