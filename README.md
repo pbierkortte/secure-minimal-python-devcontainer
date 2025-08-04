@@ -27,7 +27,7 @@ You should see the test pass, confirming your development environment is ready.
 
 ## What You Get
 
-- Python 3.9 environment
+- Python 3.11 environment
 - Complete Python toolchain (Pylance, debugger, Black formatter)
 - Testing framework (pytest with coverage)
 - Security settings to prevent credential leaks
@@ -49,10 +49,3 @@ You should see the test pass, confirming your development environment is ready.
 
 - Edit `requirements.txt` for your project dependencies
 - Adjust `devcontainer.json` to add features
-- **AI Assistants**: Uncomment the line you want to use:
-  - For Cline: `"saoudrizwan.claude-dev"`
-  - For Roo: `"RooVeterinaryInc.roo-cline"`
-- **Change Python version**: Update the `image` in `devcontainer.json`
-  - Current: `mcr.microsoft.com/devcontainers/python:1-3.9-bookworm` (legacy support)
-  - For Python 3.11: `mcr.microsoft.com/devcontainers/python:1-3.11-bookworm`
-  - For Python 3.12: `mcr.microsoft.com/devcontainers/python:1-3.12-bookworm`
