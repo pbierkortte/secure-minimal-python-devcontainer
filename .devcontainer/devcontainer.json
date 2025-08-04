@@ -1,73 +1,76 @@
 // A Secure Minimal Python Development Environment
 {
-    "name": "Python Dev",
-    "image": "mcr.microsoft.com/devcontainers/python:1-3.9-bookworm",
-    "containerEnv": {
-        // *** Git Configuration ***
-        // Use nano as the default git editor
-        "GIT_EDITOR": "nano",
-        // Prevent getting stuck in vim/less pagers
-        "GIT_PAGER": "cat",
-        // *** Python Configuration ***
-        // Suppress verbose pip output to save tokens
-        "PIP_QUIET": "1",
-        // Enable imports from project root
-        "PYTHONPATH": "${containerWorkspaceFolder}",
-        // Skip bytecode caching
-        "PYTHONDONTWRITEBYTECODE": "1"
-    },
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                // *** AI Coding Assistants ***
-                // "saoudrizwan.claude-dev",
-                // "RooVeterinaryInc.roo-cline",
-                // *** Python Development Extensions ***
-                // Python language support
-                "ms-python.python",
-                // Python language server
-                "ms-python.pylance",
-                // Python debugging
-                "ms-python.debugpy",
-                // Python code formatter
-                "ms-python.black-formatter"
-            ],
-            "settings": {
-                // *** Extension Management ***
-                // Remove MS bloat
-                "dev.containers.defaultExtensionsIfInstalledLocally": [],
-                // *** Container Security ***
-                // Prevent Docker credentials leaking
-                "dev.containers.dockerCredentialHelper": false,
-                // Prevent Git credentials leaking
-                "dev.containers.copyGitConfig": false,
-                // Disable Git credential helper
-                "dev.containers.gitCredentialHelperConfigLocation": "none",
-                // Prevent WSL-related credential leaks on Windows
-                "dev.containers.executeInWSL": false,
-                // *** Code Formatting ***
-                "[python]": {
-                    // Automatically format code on save
-                    "editor.formatOnSave": true,
-                    // Use Black as the default Python formatter
-                    "editor.defaultFormatter": "ms-python.black-formatter",
-                    // Ensure files end with a newline
-                    "files.insertFinalNewline": true,
-                    "files.trimFinalNewlines": true
-                }
-            }
+  "name": "Python Dev",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "options": ["--platform=linux/amd64"]
+  },
+  "containerEnv": {
+    // *** Git Configuration ***
+    // Use nano as the default git editor
+    "GIT_EDITOR": "nano",
+    // Prevent getting stuck in vim/less pagers
+    "GIT_PAGER": "cat",
+    // *** Python Configuration ***
+    // Suppress verbose pip output to save tokens
+    "PIP_QUIET": "1",
+    // Enable imports from project root
+    "PYTHONPATH": "${containerWorkspaceFolder}",
+    // Skip bytecode caching
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // *** AI Coding Assistants ***
+        // Cline
+        // "saoudrizwan.claude-dev",
+        // Kilo
+        // "kilocode.Kilo-Code",
+        // Roo
+        // "RooVeterinaryInc.roo-cline",
+        // *** Python Development Extensions ***
+        // Python language support
+        "ms-python.python",
+        // Python language server
+        "ms-python.pylance",
+        // Python debugging
+        "ms-python.debugpy",
+        // Python code formatter
+        "ms-python.black-formatter"
+      ],
+      "settings": {
+        // *** Extension Management ***
+        // Remove MS bloat
+        "dev.containers.defaultExtensionsIfInstalledLocally": [],
+        // *** Container Security ***
+        // Prevent Docker credentials leaking
+        "dev.containers.dockerCredentialHelper": false,
+        // Prevent Git credentials leaking
+        "dev.containers.copyGitConfig": false,
+        // Disable Git credential helper
+        "dev.containers.gitCredentialHelperConfigLocation": "none",
+        // Prevent WSL-related credential leaks on Windows
+        "dev.containers.executeInWSL": false,
+        // *** Code Formatting ***
+        "[python]": {
+          // Automatically format code on save
+          "editor.formatOnSave": true,
+          // Use Black as the default Python formatter
+          "editor.defaultFormatter": "ms-python.black-formatter",
+          // Ensure files end with a newline
+          "files.insertFinalNewline": true,
+          "files.trimFinalNewlines": true
         }
-    },
-    // *** Container Setup Commands ***
-    "postCreateCommand": "pip3 install -r requirements.txt",
-    // *** Additional Features ***
-    "features": {
-        // AWS CLI support
-        "ghcr.io/devcontainers/features/aws-cli:1": {}
+      }
     }
-    // *** Optional Configuration (uncomment as needed) ***
-    // Make container ports available locally
-    // "forwardPorts": [],
-    // Connect as root user (see: https://aka.ms/dev-containers-non-root)
-    // "remoteUser": "root"
+  },
+  // *** Additional Features ***
+  "features": {
+    // AWS CLI support
+    "ghcr.io/devcontainers/features/aws-cli:1": {}
+  },
+  // *** Container Setup Commands ***
+  "postCreateCommand": "unset PIP_QUIET; pip install -r requirements.txt"
 }
