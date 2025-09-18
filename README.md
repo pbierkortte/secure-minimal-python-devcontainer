@@ -56,10 +56,11 @@ The container auto-installs:
 
 ## Files
 
-- `.devcontainer/devcontainer.json` – Container configuration
-- `.devcontainer/Dockerfile` – Base image (Python 3.11)
-- `requirements.txt` – Testing and formatting dependencies (pytest, pytest-cov, black)
-- `example.py` – Example Python script
+- `.devcontainer/devcontainer.json` – Container configuration  
+- `.devcontainer/Dockerfile` – Base image (Python 3.11)  
+- `requirements.txt` – Testing and formatting dependencies (pytest, pytest-cov, black)  
+- `pytest.ini` – Test configuration (maxfail and coverage report)  
+- `example.py` – Example Python script  
 
 ## Key Settings
 
