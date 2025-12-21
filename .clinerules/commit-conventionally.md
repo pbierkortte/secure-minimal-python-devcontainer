@@ -49,4 +49,6 @@ The Conventional Commits format with JIRA ticket integration enables automated c
 
 ❌ Bad: `update(TICKET-123): Update dependencies` (fake type)
 
+❌ Bad: `chore: Initial commit` (assumed no ticket needed)
+
 ---
