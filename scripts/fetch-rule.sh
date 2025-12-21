@@ -9,9 +9,9 @@ if [ -z "$TARGET_PATH" ]; then
 fi
 
 # Parse path: .clinerules/<author>/<repo>/<filename>
-# Remove leading .clinerules/ or .clinerules/library/
+# Remove leading .clinerules/ or .clinerules/.cache/
 RELATIVE="${TARGET_PATH#.clinerules/}"
-RELATIVE="${RELATIVE#library/}"
+RELATIVE="${RELATIVE#.cache/}"
 
 # Extract author/repo/filename
 AUTHOR=$(echo "$RELATIVE" | cut -d'/' -f1)
@@ -21,8 +21,8 @@ FILENAME=$(echo "$RELATIVE" | cut -d'/' -f3-)
 # GitHub raw URL - files are in .clinerules/ subdirectory in the repo
 RAW_URL="https://raw.githubusercontent.com/$AUTHOR/$REPO/master/.clinerules/$FILENAME"
 
-# Local path: .clinerules/library/<author>/<repo>/<filename>
-LOCAL_PATH=".clinerules/library/$AUTHOR/$REPO/$FILENAME"
+# Local path: .clinerules/.cache/<author>/<repo>/<filename>
+LOCAL_PATH=".clinerules/.cache/$AUTHOR/$REPO/$FILENAME"
 
 # Create directory if needed
 mkdir -p "$(dirname "$LOCAL_PATH")"

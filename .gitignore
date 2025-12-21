@@ -11,3 +11,6 @@ venv/
 .env.*
 *.key
 *.pem
+
+# Clinerules cache
+.clinerules/.cache/
