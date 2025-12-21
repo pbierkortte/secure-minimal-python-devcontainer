@@ -1,38 +1,31 @@
-# Fetch Rules
+#!/bin/bash
+# Fetch a rule file from remote repository
+# Usage: fetch-rule.sh .clinerules/pbierkortte/secure-minimal-python-devcontainer/add-header.md
 
-This library extends the AI assistant's capabilities with reusable rules that can be loaded on-demand.
+TARGET_PATH="$1"
 
-## Always
-- Reference check: Consult library files when their topic applies to current task
-- Path access: Read files using paths listed below when guidance is needed
-- Best practices: Follow loaded rule instructions as authoritative guidance
+if [ -z "$TARGET_PATH" ]; then
+    exit 1
+fi
 
-## Never
-- Ignore available: Skip consulting relevant library rules that match current work
-- Assume contents: Guess what a rule says without reading it first
-- Override silently: Contradict library guidance without explicit user direction
+# Parse path: .clinerules/<author>/<repo>/<filename>
+# Remove leading .clinerules/ or .clinerules/library/
+RELATIVE="${TARGET_PATH#.clinerules/}"
+RELATIVE="${RELATIVE#library/}"
 
-## Steps
-1. Scan available files list below for relevant topics
-2. Read the full rule file using `read_file` when topic matches current task
-3. If file not found, fetch it ( `scripts/fetch-rule.sh <path>` )
-4. Apply the rule's guidance to your work
-5. Continue checking library as new topics arise
+# Extract author/repo/filename
+AUTHOR=$(echo "$RELATIVE" | cut -d'/' -f1)
+REPO=$(echo "$RELATIVE" | cut -d'/' -f2)
+FILENAME=$(echo "$RELATIVE" | cut -d'/' -f3-)
 
-## Available Files
+# GitHub raw URL - files are in .clinerules/ subdirectory in the repo
+RAW_URL="https://raw.githubusercontent.com/$AUTHOR/$REPO/master/.clinerules/$FILENAME"
 
-```
-pbierkortte/
-└── secure-minimal-python-devcontainer/
-    ├── add-header.md
-    ├── clean-up.md
-    ├── commit-conventionally.md
-    ├── create-rule.md
-    ├── explore-first.md
-    ├── keep-it-simple.md
-    ├── name-branch-with-ticket.md
-    ├── read-me.md
-    └── update-project-registry.md
-```
+# Local path: .clinerules/library/<author>/<repo>/<filename>
+LOCAL_PATH=".clinerules/library/$AUTHOR/$REPO/$FILENAME"
 
----
+# Create directory if needed
+mkdir -p "$(dirname "$LOCAL_PATH")"
+
+# Fetch and overwrite silently
+curl -s "$RAW_URL" -o "$LOCAL_PATH" 2>/dev/null
