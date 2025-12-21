@@ -23,7 +23,7 @@ This library extends the AI assistant's capabilities with reusable rules that ca
 
 ```
 pbierkortte/
-└── secure-minimal-python-devcontainer/
+└── cline-rule-library/
     ├── add-header.md
     ├── clean-up.md
     ├── commit-conventionally.md
