@@ -19,7 +19,7 @@ This library extends the AI assistant's capabilities with reusable rules that ca
 4. Apply the rule's guidance to your work
 5. Continue checking library as new topics arise
 
-## Available Files
+## Available Files (`.clinerules/.cache/`)
 
 ```
 pbierkortte/
