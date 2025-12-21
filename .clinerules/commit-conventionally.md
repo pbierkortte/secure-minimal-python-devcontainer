@@ -24,7 +24,7 @@ The Conventional Commits format with JIRA ticket integration enables automated c
 
 ## Steps
 1. From branch name: Get JIRA ticket (`git branch --show-current`)
-2. Staged changes: Review changes (`git diff --no-pager --staged`)
+2. Staged changes: Review changes (`git --no-pager diff --staged`)
 3. Change explanation: Explain what changed and why
 4. File addition: Add relevant files
 5. Construct message: Follow required format
