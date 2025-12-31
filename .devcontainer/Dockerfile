@@ -1,1 +1,1 @@
-FROM mcr.microsoft.com/devcontainers/python:1-3.11-bookworm
+FROM mcr.microsoft.com/devcontainers/python:dev-3.14-bookworm
