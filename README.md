@@ -27,7 +27,7 @@ You should see the test pass, confirming your development environment is ready.
 
 ## What You Get
 
-- Python 3.11 environment (via official devcontainers image)
+- Python 3.14 environment (via official devcontainers image)
 - Complete Python toolchain:
   - Python extension (ms-python.python)
   - Pylance language server (ms-python.pylance)
@@ -57,7 +57,7 @@ The container auto-installs:
 ## Files
 
 - `.devcontainer/devcontainer.json` – Container configuration  
-- `.devcontainer/Dockerfile` – Base image (Python 3.11)  
+- `.devcontainer/Dockerfile` – Base image (Python 3.14)  
 - `requirements.txt` – Testing and formatting dependencies (pytest, pytest-cov, black)  
 - `pytest.ini` – Test configuration
 - `example.py` – Example Python script  
